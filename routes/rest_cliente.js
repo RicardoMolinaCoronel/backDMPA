@@ -1,9 +1,13 @@
  var express = require('express');
+//const { Sequelize,QueryTypes } = require('sequelize');
   var router = express.Router();
 
   /* IMPORTE El ARCHIVO CON EL NOMBRE_CLASE */
   const cliente = require('../models').cliente;
-  router.get('/findAll/json', function(req, res, next) {  
+const Pedido = require('../models').pedido; // Asegúrate de importar el modelo Pedido
+const ClientePedido = require('../models').cliente_pedido; // Asegúrate de importar el modelo ClientePedido
+
+router.get('/findAll/json', function(req, res, next) {  
 
     	/* MÉTODO ESTÁTICO findAll  */
 
@@ -31,6 +35,8 @@ router.get('/findById/:id/json', function(req, res, next) {
           })
           .catch(error => res.status(400).send(error))
     });
+
+
  router.post('/save', function(req, res, next) {  
 
         cliente.create(req.body)
