@@ -36,29 +36,7 @@ router.get('/findById/:id/json', function(req, res, next) {
           .catch(error => res.status(400).send(error))
     });
 
-router.get('/findPedidoById/:id/json', function(req, res, next) {  
 
-      let id = req.params.id;
-
-      Pedido.findAll({
-  include: [
-    {
-      model: ClientePedido,
-      where: {
-        cliente_idcliente: 1
-      }
-    }
-  ]
-})
-          .then(instancia => {
-            if(instancia) {
-              res.status(200).json(instancia);
-            } else {
-              res.status(404).json({error: "No existe registro con el identificador "+id})
-            }
-          })
-          .catch(error => res.status(400).send(error))
-    });
 
 
  router.post('/save', function(req, res, next) {  
