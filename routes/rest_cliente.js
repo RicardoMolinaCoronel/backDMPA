@@ -8,6 +8,11 @@ const Pedido = require('../models').pedido; // Asegúrate de importar el modelo 
 const ClientePedido = require('../models').cliente_pedido; // Asegúrate de importar el modelo ClientePedido
 
 router.get('/findAll/json', function(req, res, next) {  
+    const { rol } = req.user;
+
+    if (rol !== 'admin') {
+        return res.sendStatus(403);
+    }
 
     	/* MÉTODO ESTÁTICO findAll  */
 
