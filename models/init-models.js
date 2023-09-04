@@ -9,6 +9,7 @@ var _objeto3d = require("./objeto3d");
 var _objeto3d_pedido = require("./objeto3d_pedido");
 var _pedido = require("./pedido");
 var _pedido_factura = require("./pedido_factura");
+var _sequelizemeta = require("./sequelizemeta");
 
 function initModels(sequelize) {
   var cliente = _cliente(sequelize, DataTypes);
@@ -21,6 +22,7 @@ function initModels(sequelize) {
   var objeto3d_pedido = _objeto3d_pedido(sequelize, DataTypes);
   var pedido = _pedido(sequelize, DataTypes);
   var pedido_factura = _pedido_factura(sequelize, DataTypes);
+  var sequelizemeta = _sequelizemeta(sequelize, DataTypes);
 
   cliente_factura.belongsTo(cliente, { as: "cliente_idcliente_cliente", foreignKey: "cliente_idcliente"});
   cliente.hasMany(cliente_factura, { as: "cliente_facturas", foreignKey: "cliente_idcliente"});
@@ -34,8 +36,8 @@ function initModels(sequelize) {
   factura.hasMany(pedido_factura, { as: "pedido_facturas", foreignKey: "factura_idfactura"});
   objeto3d_pedido.belongsTo(objeto3d, { as: "objeto3d_idobjeto3d_objeto3d", foreignKey: "objeto3d_idobjeto3d"});
   objeto3d.hasMany(objeto3d_pedido, { as: "objeto3d_pedidos", foreignKey: "objeto3d_idobjeto3d"});
-  cliente_pedido.belongsTo(pedido, { as: "pedido_idpedido_pedido", foreignKey: "pedido_idpedido"});
-  pedido.hasMany(cliente_pedido, { as: "cliente_pedidos", foreignKey: "pedido_idpedido"});
+  cliente_pedido.belongsTo(pedido, { as: "pedidoIdpedido_pedido", foreignKey: "pedidoIdpedido"});
+  pedido.hasMany(cliente_pedido, { as: "cliente_pedidos", foreignKey: "pedidoIdpedido"});
   empleado_pedido.belongsTo(pedido, { as: "pedido_idpedido_pedido", foreignKey: "pedido_idpedido"});
   pedido.hasMany(empleado_pedido, { as: "empleado_pedidos", foreignKey: "pedido_idpedido"});
   objeto3d_pedido.belongsTo(pedido, { as: "pedido_idpedido_pedido", foreignKey: "pedido_idpedido"});
@@ -54,6 +56,7 @@ function initModels(sequelize) {
     objeto3d_pedido,
     pedido,
     pedido_factura,
+    sequelizemeta,
   };
 }
 module.exports = initModels;

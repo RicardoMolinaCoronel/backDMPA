@@ -1,6 +1,12 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('cliente_pedido', {
+    id: {
+      autoIncrement: true,
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true
+    },
     cliente_idcliente: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -9,9 +15,9 @@ module.exports = function(sequelize, DataTypes) {
         key: 'idcliente'
       }
     },
-    pedido_idpedido: {
+    pedidoIdpedido: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'pedido',
         key: 'idpedido'
@@ -23,6 +29,14 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false,
     indexes: [
       {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "id" },
+        ]
+      },
+      {
         name: "fk_table1_cliente_idx",
         using: "BTREE",
         fields: [
@@ -33,7 +47,7 @@ module.exports = function(sequelize, DataTypes) {
         name: "fk_table1_pedido1_idx",
         using: "BTREE",
         fields: [
-          { name: "pedido_idpedido" },
+          { name: "pedidoIdpedido" },
         ]
       },
     ]

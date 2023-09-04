@@ -9,9 +9,40 @@ async up (queryInterface, Sequelize) {
        /* LA ESTRUCTURA DE LOS OBJETOS JSON (CLAVE-VALOR), DE ACUERDO CON EL MODELO RELACIONADO */
        {
        	cliente_idcliente: 5,
-       	pedido_idpedido: 5,
+       	pedidoIdpedido: 1,
        
-       }
+       },
+{
+       	cliente_idcliente: 5,
+       	pedidoIdpedido: 2,
+       
+       },
+{
+       	cliente_idcliente: 5,
+       	pedidoIdpedido: 3,
+       
+       },
+{
+       	cliente_idcliente: 1,
+       	pedidoIdpedido: 4,
+       
+       },
+{
+       	cliente_idcliente: 1,
+       	pedidoIdpedido: 7,
+       
+       },
+{
+       	cliente_idcliente: 2,
+       	pedidoIdpedido: 5,
+       
+       },
+{
+       	cliente_idcliente: 2,
+       	pedidoIdpedido: 6,
+       
+       },
+
        ], {});
     },
 

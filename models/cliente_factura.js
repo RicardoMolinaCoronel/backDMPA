@@ -1,6 +1,12 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('cliente_factura', {
+    id: {
+      autoIncrement: true,
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true
+    },
     cliente_idcliente: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -22,6 +28,14 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'cliente_factura',
     timestamps: false,
     indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "id" },
+        ]
+      },
       {
         name: "fk_table1_cliente1_idx",
         using: "BTREE",

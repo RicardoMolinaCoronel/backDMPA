@@ -8,11 +8,25 @@ async up (queryInterface, Sequelize) {
 	     
        /* LA ESTRUCTURA DE LOS OBJETOS JSON (CLAVE-VALOR), DE ACUERDO CON EL MODELO RELACIONADO */
        {
-       	idcliente: 5,
-       	nombre: 'Ricardo',
+       	idcliente: 1,
+       	nombre: 'Ricardo Molina',
        	direccion: 'Guayaquil',
-	correo: 'si@gmail.com',
-telefono: '0000000000'
+	correo: 'ricardom23@gmail.com',
+telefono: '0987654321'
+       },
+{
+       	idcliente: 2,
+       	nombre: 'Roberto Nuñez',
+       	direccion: 'Guayaquil',
+	correo: 'rn2ww@gmail.com',
+telefono: '0982356472'
+       },
+{
+       	idcliente: 5,
+       	nombre: 'Camila Cortez',
+       	direccion: 'Guayaquil',
+	correo: 'camico23@gmail.com',
+telefono: '0954673652'
        }
        ], {});
     },
