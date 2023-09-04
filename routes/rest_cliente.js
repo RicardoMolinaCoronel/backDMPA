@@ -10,7 +10,7 @@ pedido.hasMany(clientepedido);
 
 
 router.get('/findAll/json', function(req, res, next) {  
-    const { rol } = req.user;
+    //const { rol } = req.user;
 
     	/* MÉTODO ESTÁTICO findAll  */
 
