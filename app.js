@@ -25,7 +25,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 /* CONFIGURACIÓN DE LA RUTA A LA DOCUMENTACIÓN */
-  app.use('/rest/cliente', authenticateJWT, clienteRouter);
+ // app.use('/rest/cliente', authenticateJWT, clienteRouter);
   app.use('/rest/pedido', authenticateJWT, pedidoRouter);
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 app.use(logger('dev'));
