@@ -6,7 +6,7 @@
     "description": ""
   },
   "host": "backdmpa-production.up.railway.app",
-  "basePath": "/",
+  "basePath": "/rest",
   "schemes": [
     "https"
   ],
